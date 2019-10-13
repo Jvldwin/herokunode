@@ -3,9 +3,10 @@ const app = express();
 const path = require('path');
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
-app.listen(process.env.PORT || 4000, function(){
-    console.log('Your node js server is running');
+const port = process.env.PORT || 8081
+app.listen(port, function(){
+    console.log(`Your node js server is running on ${port} `);
 });
