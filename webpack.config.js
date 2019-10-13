@@ -22,7 +22,12 @@ module.exports = {
         filename: 'server.js'
     },
     plugins: [
-        new webpack.BannerPlugin({banner: 'require("source-map-support").install();', raw: true, entryOnly: false })
+        new webpack.BannerPlugin({banner: 'require("source-map-support").install();', raw: true, entryOnly: false }),
+        new webpack.DefinePlugin({
+            'process.env': {
+              PORT: 8081 
+            },
+        }),
     ],
     devtool: 'sourcemap' 
 }
