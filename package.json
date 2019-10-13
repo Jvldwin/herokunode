@@ -2,18 +2,18 @@
   "name": "herokunode",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/server.js",
     "dev": "webpack --mode development",
-    "heroku-postbuild": "webpack --mode production "
+    "heroku-postbuild": "webpack --mode development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "source-map-support": "^0.5.13"
   },
   "devDependencies": {
     "webpack": "^4.41.1",
