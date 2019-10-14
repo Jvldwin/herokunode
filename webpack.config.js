@@ -1,6 +1,5 @@
 const  webpack = require('webpack');
 const path = require('path');
-const fs = require('fs');
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
@@ -10,11 +9,10 @@ module.exports = {
         console: false,
         global: true,
         process: true,
-        __filename: true,
-        __dirname: true,
+        __filename: false,
+        __dirname: false,
         Buffer: true,
         setImmediate: true
-        // See "Other node core libraries" for additional options.
     },
     entry: './src/server.js',
     output:{

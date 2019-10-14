@@ -94,7 +94,7 @@ require("source-map-support").install();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__dirname) {const express = __webpack_require__(/*! express */ "express");
+const express = __webpack_require__(/*! express */ "express");
 const app = express();
 const path = __webpack_require__(/*! path */ "path");
 
@@ -102,11 +102,10 @@ app.get('/', function(req, res) {
     res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
-const port = 8081 || false
+const port = process.env.PORT || 4000
 app.listen(port, function(){
     console.log(`Your node js server is running on ${port} `);
 });
-/* WEBPACK VAR INJECTION */}.call(this, "src"))
 
 /***/ }),
 
