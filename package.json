@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:server" : "webpack",
-    "build:client" : "webpack --config webpack.client.config.js",
+    "build:server" : "webpack --mode development",
+    "build:client" : "webpack --config webpack.client.config.js --mode development",
     "build" : "npm run build:server && npm run build:client",
     "serve": "node dist/server.js",
     "start": "npm run build && npm run serve",
