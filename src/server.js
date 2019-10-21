@@ -1,9 +1,22 @@
 const express = require('express');
 const app = express();
-const path = require('path');
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router'
+import App from './components/App'
+app.set('view engine', 'ejs')
+app.set('views', 'src/views')
+app.use('/static', express.static('public'))
 
-app.get('/', function(req, res) {
-    res.sendFile(path.resolve(__dirname, '../index.html'));
+app.get('*', function(req, res) {
+    const context = {}
+    res.render('layout', {
+        content :ReactDOMServer.renderToString (
+            <StaticRouter location={req.url} context={context}>
+                <App/>
+            </StaticRouter>
+        )   
+    })
 });
 
 const port = process.env.PORT || 4000

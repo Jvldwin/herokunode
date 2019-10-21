@@ -4,18 +4,30 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/server.js",
-    "dev": "webpack --mode development && npm start",
-    "heroku-postbuild": "webpack --mode development"
+    "build:server" : "webpack",
+    "build:client" : "webpack --config webpack.client.config.js",
+    "build" : "npm run build:server && npm run build:client",
+    "serve": "node dist/server.js",
+    "start": "npm run build && npm run serve",
+    "heroku-postbuild": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "source-map-support": "^0.5.13"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-node-externals": "^1.7.2"

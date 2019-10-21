@@ -22,5 +22,10 @@ module.exports = {
     plugins: [
         new webpack.BannerPlugin({banner: 'require("source-map-support").install();', raw: true, entryOnly: false }),
     ],
-    devtool: 'sourcemap' 
+    devtool: 'sourcemap',
+    module: {
+        rules: [
+            {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/}
+        ]
+    }
 }
