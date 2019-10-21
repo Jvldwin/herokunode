@@ -9,7 +9,7 @@
     "build" : "npm run build:server && npm run build:client",
     "serve": "node dist/server.js",
     "start": "npm run build && npm run serve",
-    "heroku-postbuild": "webpack --mode production"
+    "heroku-postbuild": "webpack --mode developement"
   },
   "keywords": [],
   "author": "",
